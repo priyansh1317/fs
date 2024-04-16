@@ -18,7 +18,8 @@ const App = () => {
   console.log(votes)
   return (
     <div>
-      <h3>{anecdotes[selected]}</h3>  <br></br>
+      <h1>Anectode of the day</h1>
+      <p>{anecdotes[selected]}</p>  <br></br>
       <p>The above anecdote has {votes[selected]} votes</p>
 
       <button onClick={() => {votes[selected]+=1;setVotes(votes)
@@ -27,6 +28,9 @@ const App = () => {
       {/* taking floor value of randomNum so that to convert it into int */}
       <button onClick={() => {const randomNum = Math.floor(Math.random() * anecdotes.length);
         setSelected(randomNum);}}> next anecdote </button>
+
+      <h3>Anecdote with most votes</h3>   
+      <p>{anecdotes[Math.max(...votes)]}</p>
     </div>
   )
 }
