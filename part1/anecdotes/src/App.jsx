@@ -13,10 +13,17 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
-  
+  //initializes an array of length 8 with default values 0
+  const [votes, setVotes] = useState(new Uint8Array(anecdotes.length));
+  console.log(votes)
   return (
     <div>
-      {anecdotes[selected]}  <br></br>
+      <h3>{anecdotes[selected]}</h3>  <br></br>
+      <p>The above anecdote has {votes[selected]} votes</p>
+
+      <button onClick={() => {votes[selected]+=1;setVotes(votes)
+        }}>vote</button>
+
       {/* taking floor value of randomNum so that to convert it into int */}
       <button onClick={() => {const randomNum = Math.floor(Math.random() * anecdotes.length);
         setSelected(randomNum);}}> next anecdote </button>
