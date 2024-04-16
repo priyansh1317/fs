@@ -7,7 +7,10 @@ const Button = ({text, onClick}) => {
 }
 const StatisticLine = (props) => {
   return(
-    <p>{props.text}{props.value}</p>
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
   )
 }
 const Statistics = (props) => {
@@ -40,7 +43,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Please give your honest feedback.</h1>
+      <h1>Please give your feedback.</h1>
       <Button text="Good" onClick={()=>setGood(good+1)}/>   
       <Button text="Neutral" onClick={()=>setNeutral(neutral+1)}/>
       <Button text="Bad" onClick={()=>setBad(bad+1)}/>
